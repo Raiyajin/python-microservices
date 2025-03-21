@@ -9,19 +9,14 @@ on:
   workflow_dispatch:
 
 jobs:
-
-  init:
-    uses: ./.github/workflows/init.yml
-
   test:
-    needs: init
     uses: ./.github/workflows/test.yml
 
-
   build:
-    needs: init
     uses: ./.github/workflows/build.yml
 
 #  deploy:
-#    needs: init
 #    uses: ./.github/workflows/deploy.yml
+
+  release:
+    uses: ./.github/workflows/release.yml
