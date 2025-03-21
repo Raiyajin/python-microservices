@@ -16,6 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: 'Production'
+    defaults:
+      run:
+        working-directory: ./health-calculator-service
+
     steps:
       - uses: actions/checkout@v2
 
