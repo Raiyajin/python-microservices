@@ -7,36 +7,38 @@ This repository serves as a template for a simple Flask-based DevOps project. Th
 The repository is organized as follows:
 
 ```plaintext
-DEVOPS-PROJECT/
-├── app.py
-├── utils.py
-├── test.py
-├── requirements.txt
+health-calculator-service/
+├── Dockerfile
 ├── Makefile
-├── templates/
-│   └── home.html
-├── .env
-├── .gitignore
+├── README.md
+└── health-calculator-service/
+    ├── doc/
+    ├── requirements.txt
+    ├── src/
+    │   ├── app.py
+    │   ├── health_exceptions.py
+    │   └── health_utils.py
+    └── test/
+        ├── test_api.py
+        ├── test_bmi.py
+        └── test_bmr.py
 ```
 
 ### File Descriptions
 
-- **`app.py`**: The main application file for the Flask app. It sets up routes and connects them to functions in `utils.py` to provide API endpoints for app operations.
-
-- **`utils.py`**: Contains utility functions for core operations like addition and subtraction. This file is designed to house the main logic for the app’s functionality.
-
-- **`test.py`**: A unit test file that includes tests for the functions defined in `utils.py`. This file ensures that the core functionality behaves as expected.
-
-- **`requirements.txt`**: Lists the Python dependencies needed to run the application. This file is used to install the necessary packages in the project environment.
-
-- **`Makefile`**: A makefile to streamline project setup and operations. Includes commands for:
-  - `make init`: Install project dependencies.
-  - `make run`: Start the Flask app.
-  - `make test`: Run all unit tests.
-
-- **`templates/home.html`**: HTML template for the app's user interface. This file provides input fields and buttons for interacting with the calculator operations.
-
-- **`.env`**: A configuration file for environment variables. It’s used to securely store sensitive information (like API keys, database credentials, or environment-specific settings). **Note**: This file should not be committed to version control for security reasons.
+- **`health-calculator-service/`**: The health calculator microservice.
+  - **`src/app.py`**: The main application file for the Flask app. It sets up routes and connects them to functions in `health_utils.py` to provide API endpoints for app operations.
+  - **`src/health_utils.py`**: Contains utility functions for core operations like addition and subtraction. This file is designed to house the main logic for the app’s functionality.
+  - **`src/health_exceptions.py`**: Contains custom exceptions classes.
+  - **`test`**: A test directory that includes tests for the functions defined in `health_utils.py` and the flask api. This file ensures that the core functionality behaves as expected.
+  - **`doc`**: A documentation directory that includes documentation related to the health calculator service.
+  - **`requirements.txt`**: Lists the Python dependencies needed to run the application. This file is used to install the necessary packages in the project environment.
+  - **`Makefile`**: A makefile to streamline project setup and operations. Includes commands for:
+    - `make init`: Install project dependencies.
+    - `make run`: Start the Flask app.
+    - `make test`: Run all unit tests.
+    - `make build`: Build the docker image
+  - **`.env`**: A configuration file for environment variables. It’s used to securely store sensitive information (like API keys, database credentials, or environment-specific settings). **Note**: This file should not be committed to version control for security reasons.
 
 - **`.gitignore`**: Specifies files and directories that should be ignored by Git. It typically includes files such as `.env` and compiled Python files (`__pycache__`), as well as local environment and dependency caches.
 
@@ -45,7 +47,7 @@ DEVOPS-PROJECT/
 1. **Clone the Repository**:
    ```bash
    git clone <repository-url>
-   cd DEVOPS-PROJECT
+   cd python-microservices/health-calculator-service
    ```
 
 2. **Set Up the Environment**:
@@ -68,6 +70,12 @@ DEVOPS-PROJECT/
      make test
      ```
 
+5. **Build the Docker Image**:
+   - Build the Docker image for the Flask app:
+     ```bash
+     make build
+     ```
+
 ## Additional Configuration
 
 - **Environment Variables**:
@@ -75,14 +83,16 @@ DEVOPS-PROJECT/
 
 ## Deployment Instructions
 
-For deployment, configure CI/CD pipelines according to your preferred platform (e.g., GitHub Actions, Azure Pipelines). This template can be used with cloud deployment platforms like AWS, Azure, or Heroku for easy scalability.
-  - Use `pipeline.yaml` as a template for a pipeline to build and deploy an application on Azure
+The deployment CI/CD pipelines uses GitHub Actions
+  - all the deployment configurations are in the `.github/workflows` directory
+  - files ending with `*-workflow.yml` are the actual entry points for the CI/CD pipelines in github actions
 
 ## Author
 
-This template was created by **Ali Mokh** and is intended as an educational resource for DevOps projects involving Flask applications.
+The original template was created by **Ali Mokh** and is intended as an educational resource for DevOps projects involving Flask applications.
+
+And the project was modified by **Rayan HAOUAS** for the purpose of the **Health Calculator Microservice with CI/CD Pipeline on Azure** project.
 
 ## License and Usage
 
 This project template is open to use by anyone and may be freely adapted for personal or professional projects. If you use this template as part of teaching materials or educational content, please cite **Ali Mokh** as the original author.
-
