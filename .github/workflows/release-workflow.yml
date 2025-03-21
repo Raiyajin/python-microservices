@@ -5,20 +5,11 @@ on:
   release:
     types: [ published ]
 
-  # publish on pushes to the main branch (image tagged as "latest")
-  push:
-    branches:
-      - master
-      - main
-
 jobs:
   post-release:
     runs-on: ubuntu-latest
     environment:
       name: 'Production'
-    defaults:
-      run:
-        working-directory: ./health-calculator-service
 
     steps:
       - uses: actions/checkout@v2
@@ -29,3 +20,5 @@ jobs:
         with:
           image_name: ${{ github.repository }}  # it will be lowercased internally
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          dockerfile: ./health-calculator-service/Dockerfile
+          context: './health-calculator-service'
