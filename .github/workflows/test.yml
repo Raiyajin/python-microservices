@@ -4,6 +4,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./health-calculator-service
+
     steps:
     - name: test
       run: make test
