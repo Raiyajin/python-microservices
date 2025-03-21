@@ -41,3 +41,8 @@ class TestAPI(unittest.TestCase):
         with app.test_client() as client:
             response = client.post('/bmr', data={"height": 180})
             assert response.status_code == 400
+
+    def test_invalid_path(self):
+        with app.test_client() as client:
+            response = client.post('/', data={"height": 180, "weight": 80})
+            assert response.status_code == 404
