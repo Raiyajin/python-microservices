@@ -14,9 +14,6 @@ jobs:
     uses: ./.github/workflows/init.yml
     environment:
       name: 'Production'
-    defaults:
-      run:
-        working-directory: ./health-calculator-service
 
   test:
     needs: init
