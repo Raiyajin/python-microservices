@@ -11,6 +11,12 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Configure Git
+      run: |
+        git config --global user.email "actions@github.com"
+        git config --global user.name "GitHub Actions"
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+
     - name: Nyx infer
       id: nyx
       uses: mooltiverse/nyx@main
@@ -21,13 +27,18 @@ jobs:
     - name: Nyx mark
       uses: mooltiverse/nyx@main
       with:
-          command: 'mark'
+        command: 'make'
+        changelogPath: 'CHANGELOG.md'
+        releasePrefix: 'v'
+        preset: extended
 
-    - name: Configure Git
-      run: |
-        git config --global user.email "actions@github.com"
-        git config --global user.name "GitHub Actions"
-        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+    - name: Nyx mark
+      uses: mooltiverse/nyx@main
+      with:
+        command: 'mark'
+        changelogPath: 'CHANGELOG.md'
+        releasePrefix: 'v'
+        preset: extended
 
     - name: Nyx publish
       uses: mooltiverse/nyx@main
@@ -39,3 +50,4 @@ jobs:
         changelogPath: 'CHANGELOG.md'
         releasePrefix: 'v'
         preset: extended
+        releaseTypesPublicationServices: 'GITHUB'
