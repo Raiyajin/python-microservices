@@ -32,3 +32,4 @@ jobs:
         command: 'publish'
         changelogPath: 'CHANGELOG.md'
         releasePrefix: 'v'
+        preset: extended
