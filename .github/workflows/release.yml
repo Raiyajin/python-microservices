@@ -3,13 +3,14 @@ on:
 
 jobs:
   release:
-    name: Infer the repository version with Nyx
+    name: Publish the release (if any) with Nyx
     runs-on: ubuntu-latest
     steps:
     - name: Git checkout
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
+<<<<<<< Updated upstream
 
     - name: Configure Git
       run: |
@@ -42,12 +43,24 @@ jobs:
 
     - name: Nyx publish
       uses: mooltiverse/nyx@main
+=======
+    - name: Nyx publish
+      id: nyx
+      uses: mooltiverse/nyx@main
+>>>>>>> Stashed changes
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NYX_VERBOSITY: 'INFO'
       with:
         command: 'publish'
         changelogPath: 'CHANGELOG.md'
+<<<<<<< Updated upstream
         releasePrefix: 'v'
         preset: extended
         releaseTypesPublicationServices: 'GITHUB'
+=======
+        preset: 'extended'
+        releaseLenient: 'true'
+        stateFile: '.nyx-state.json'
+        summaryFile: '.nyx-summary.txt'
+>>>>>>> Stashed changes
