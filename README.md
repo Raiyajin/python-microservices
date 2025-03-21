@@ -1,6 +1,6 @@
 [![Powered by Nyx](https://img.shields.io/badge/powered%20by-Nyx-blue)](https://github.com/mooltiverse/nyx)
 
-# Flask App - DevOps Project Template
+# Flask App - Health Calculator Microservice
 
 This repository serves as a template for a simple Flask-based DevOps project. The app provides basic calculator functionalities (addition and subtraction) and includes all necessary files for setting up a local environment, running tests, and deploying to a cloud service with best practices in DevOps.
 
