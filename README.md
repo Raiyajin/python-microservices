@@ -10,6 +10,13 @@ The repository is organized as follows:
 
 ```plaintext
 python-microservices/
+├── .gitignore
+├── .github/workflows/
+│   ├── build.yml
+│   ├── deploy.yml
+│   ├── main-workflow.yml
+│   ├── release.yml
+│   └── test.yml
 ├── README.md
 └── health-calculator-service/
     ├── doc/
@@ -28,6 +35,14 @@ python-microservices/
 
 ### File Descriptions
 
+- **`.gitignore`**: Specifies files and directories that should be ignored by Git. It typically includes files such as `.env` and compiled Python files (`__pycache__`), as well as local environment and dependency caches.
+- **`.github/workflows`**: Contains the github pipeline configuration.
+  - **`main-workflow.yml`**: The main pipeline configuration file. It calls jobs from other file to build, test, release, and deploy the docker image.
+  - **`build.yml`**: The build job configuration file. It defines the steps to build the docker image.
+  - **`deploy.yml`**: The deploy job configuration file. It defines the steps to deploy the docker image to Azure.
+  - **`test.yml`**: The test job configuration file. It defines the steps to run the tests.
+  - **`release.yml`**: The release job configuration file. It defines the steps to release the docker image to Azure.
+- **`README.md`**: The main documentation file that includes details about the project, its structure, and instructions for setting up the environment and running the application.
 - **`health-calculator-service/`**: The health calculator microservice.
   - **`app.py`**: The main application file for the Flask app. It sets up routes and connects them to functions in `health_utils.py` to provide API endpoints for app operations.
   - **`src/health_utils.py`**: Contains utility functions for core operations like addition and subtraction. This file is designed to house the main logic for the app’s functionality.
@@ -46,7 +61,6 @@ python-microservices/
     PORT=5000
     DEBUG=False
     ```
-- **`.gitignore`**: Specifies files and directories that should be ignored by Git. It typically includes files such as `.env` and compiled Python files (`__pycache__`), as well as local environment and dependency caches.
 
 ## Getting Started
 
