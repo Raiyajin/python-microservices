@@ -25,6 +25,9 @@ jobs:
 
     - name: Nyx publish
       uses: mooltiverse/nyx@main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NYX_VERBOSITY: 'INFO'
       with:
         command: 'publish'
         changelogPath: 'CHANGELOG.md'
