@@ -31,3 +31,4 @@ jobs:
         releaseLenient: 'true'
         stateFile: '.nyx-state.json'
         summaryFile: '.nyx-summary.txt'
+        releaseTypesPublicationServices: 'GITHUB'
