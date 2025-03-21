@@ -20,4 +20,4 @@ RUN adduser -D flask
 USER flask
 
 ENTRYPOINT ["python"]
-CMD ["src/app.py"]
+CMD ["app.py"]

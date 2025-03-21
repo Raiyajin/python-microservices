@@ -1,4 +1,4 @@
-from health_exceptions import BMIException, BMRException
+from src.health_exceptions import BMIException, BMRException
 
 def calculate_bmi(height: float, weight: float) -> float:
     """

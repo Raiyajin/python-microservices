@@ -14,8 +14,8 @@ python-microservices/
     ├── Dockerfile
     ├── Makefile
     ├── requirements.txt
+    ├── app.py
     ├── src/
-    │   ├── app.py
     │   ├── health_exceptions.py
     │   └── health_utils.py
     └── test/
@@ -27,7 +27,7 @@ python-microservices/
 ### File Descriptions
 
 - **`health-calculator-service/`**: The health calculator microservice.
-  - **`src/app.py`**: The main application file for the Flask app. It sets up routes and connects them to functions in `health_utils.py` to provide API endpoints for app operations.
+  - **`app.py`**: The main application file for the Flask app. It sets up routes and connects them to functions in `health_utils.py` to provide API endpoints for app operations.
   - **`src/health_utils.py`**: Contains utility functions for core operations like addition and subtraction. This file is designed to house the main logic for the app’s functionality.
   - **`src/health_exceptions.py`**: Contains custom exceptions classes.
   - **`test`**: A test directory that includes tests for the functions defined in `health_utils.py` and the flask api. This file ensures that the core functionality behaves as expected.

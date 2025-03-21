@@ -2,8 +2,8 @@ import os
 
 from flask import Flask, request, jsonify
 
-from health_utils import calculate_bmi, calculate_bmr
-from health_exceptions import BMIException, BMRException
+from src.health_utils import calculate_bmi, calculate_bmr
+from src.health_exceptions import BMIException, BMRException
 
 app = Flask(__name__)
 

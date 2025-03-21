@@ -5,7 +5,7 @@ init:
 	pip install -r requirements.txt
 
 run:
-	python src/app.py
+	python app.py
 
 test:
 	python -m unittest
