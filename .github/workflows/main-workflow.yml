@@ -1,0 +1,47 @@
+
+name: Main CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+
+jobs:
+
+  init:
+    uses: ./.github/workflows/init.yml
+    environment:
+      name: 'Production'
+    defaults:
+      run:
+        working-directory: ./health-calculator-service
+
+  test:
+    needs: init
+    uses: ./.github/workflows/test.yml
+    environment:
+      name: 'Production'
+    defaults:
+      run:
+        working-directory: ./health-calculator-service
+
+
+  build:
+    needs: init
+    uses: ./.github/workflows/build.yml
+    environment:
+      name: 'Production'
+    defaults:
+      run:
+        working-directory: ./health-calculator-service
+
+  deploy:
+    needs: init
+    uses: ./.github/workflows/deploy.yml
+    environment:
+      name: 'Production'
+    defaults:
+      run:
+        working-directory: ./health-calculator-service

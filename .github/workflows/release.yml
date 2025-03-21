@@ -1,0 +1,31 @@
+on:
+  workflow_call:
+
+jobs:
+  release:
+    name: Infer the repository version with Nyx
+    runs-on: ubuntu-latest
+    steps:
+    - name: Git checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Nyx infer
+      id: nyx
+      uses: mooltiverse/nyx@main
+
+    - name: Print version # This step uses the version inferred by Nyx
+      run: echo the inferred version is ${{ steps.nyx.outputs.version }}
+
+    - name: Nyx mark
+      uses: mooltiverse/nyx@main
+      with:
+          command: 'mark'
+
+    - name: Nyx publish
+      uses: mooltiverse/nyx@main
+      with:
+        command: 'publish'
+        changelogPath: 'CHANGELOG.md'
+        releasePrefix: 'v'
