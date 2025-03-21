@@ -11,4 +11,4 @@ test:
 	python -m unittest
 
 build:
-	docker build -t health-calculator-service .
+	docker build -t health-calculator .
