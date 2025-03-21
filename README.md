@@ -7,12 +7,12 @@ This repository serves as a template for a simple Flask-based DevOps project. Th
 The repository is organized as follows:
 
 ```plaintext
-health-calculator-service/
-├── Dockerfile
-├── Makefile
+python-microservices/
 ├── README.md
 └── health-calculator-service/
     ├── doc/
+    ├── Dockerfile
+    ├── Makefile
     ├── requirements.txt
     ├── src/
     │   ├── app.py
@@ -39,7 +39,11 @@ health-calculator-service/
     - `make test`: Run all unit tests.
     - `make build`: Build the docker image
   - **`.env`**: A configuration file for environment variables. It’s used to securely store sensitive information (like API keys, database credentials, or environment-specific settings). **Note**: This file should not be committed to version control for security reasons.
-
+    Here's an example of the `.env` file. If the file does not exist it takes the same default values of the given example:
+    ```shell
+    PORT=5000
+    DEBUG=False
+    ```
 - **`.gitignore`**: Specifies files and directories that should be ignored by Git. It typically includes files such as `.env` and compiled Python files (`__pycache__`), as well as local environment and dependency caches.
 
 ## Getting Started

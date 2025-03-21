@@ -1,4 +1,4 @@
-include .env
+-include .env
 .PHONY: init run test build
 
 init:
