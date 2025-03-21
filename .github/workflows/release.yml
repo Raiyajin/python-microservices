@@ -6,16 +6,18 @@ jobs:
     name: Publish the release (if any) with Nyx
     runs-on: ubuntu-latest
     steps:
+
+    - name: Git checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
     - name: Configure Git
       run: |
         git config --global user.email "actions@github.com"
         git config --global user.name "GitHub Actions"
         git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
 
-    - name: Git checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
     - name: Nyx publish
       id: nyx
       uses: mooltiverse/nyx@main
