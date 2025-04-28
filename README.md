@@ -1,4 +1,4 @@
-![Main workflow](https://github.com/Raiyajin/python-microservices/actions/workflows/main.yml/badge.svg) [![Powered by Nyx](https://img.shields.io/badge/powered%20by-Nyx-blue)](https://github.com/mooltiverse/nyx) 
+![Main workflow](https://github.com/Raiyajin/python-microservices/actions/workflows/main-workflow.yml/badge.svg) [![Powered by Nyx](https://img.shields.io/badge/powered%20by-Nyx-blue)](https://github.com/mooltiverse/nyx) 
 
 # Flask App - Health Calculator Microservice
 
