@@ -19,8 +19,8 @@ jobs:
   build:
     uses: ./.github/workflows/build.yml
 
-#  deploy:
-#    uses: ./.github/workflows/deploy.yml
+  deploy:
+    uses: ./.github/workflows/deploy.yml
 
   release:
     uses: ./.github/workflows/release.yml
