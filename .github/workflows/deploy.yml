@@ -14,7 +14,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./health-calculator-service
+        working-directory: health-calculator-service
 
     steps:
       - name: Lowercase the repo name and username
