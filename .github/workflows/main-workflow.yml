@@ -11,6 +11,7 @@ on:
 permissions:
   contents: write
   packages: write
+  id-token: write
 
 jobs:
   test:
@@ -18,9 +19,16 @@ jobs:
 
   build:
     uses: ./.github/workflows/build.yml
+    needs:
+      - test
 
   deploy:
     uses: ./.github/workflows/deploy.yml
+    needs:
+      - build
 
   release:
     uses: ./.github/workflows/release.yml
+    needs:
+      - build
+      - deploy
