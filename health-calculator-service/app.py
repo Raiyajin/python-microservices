@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask, request, jsonify
-from flasgger import Swagger
+from flasgger import Swagger, APISpec
 
 from src.health_utils import calculate_bmi, calculate_bmr
 from src.health_exceptions import BMIException, BMRException
@@ -9,7 +9,8 @@ from src.health_exceptions import BMIException, BMRException
 from config import SWAGGER_CONFIG
 
 app = Flask(__name__)
-swagger = Swagger(app, config=SWAGGER_CONFIG)
+
+Swagger(app, config=SWAGGER_CONFIG)
 
 @app.route('/bmi', methods=['POST'])
 def bmi():
