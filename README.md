@@ -56,11 +56,12 @@ python-microservices/
     - `make test`: Run all unit tests.
     - `make build`: Build the docker image
   - **`.env`**: A configuration file for environment variables. It’s used to securely store sensitive information (like API keys, database credentials, or environment-specific settings). **Note**: This file should not be committed to version control for security reasons.
-    Here's an example of the `.env` file. If the file does not exist it takes the same default values of the given example:
-    ```shell
-    PORT=5000
-    DEBUG=False
-    ```
+
+### Environment Variables
+The application uses environment variables to configure its settings. You can set these variables in a `.env` file or directly in your environment. The following variables are used:
+- `PORT`: The port on which the Flask app will run. Default is `5000`.
+- `DEBUG`: Set to `True` for development mode, which enables debug mode in Flask. Default is `False`.
+- `GITHUB_RELEASE_API_URL`: The URL for the GitHub release API. Default is `None`. Used to retrieve latest tag from a repo dynamically. Should be set to `https://api.github.com/repos/<owner>/<repo>/releases/latest` where `<owner>` is the owner of the repo and `<repo>` is the name of the repo.
 
 ## Getting Started
 
